@@ -4,18 +4,28 @@ public static int randomIntRange(int min, int max) {
 
 + askInt()
 (demande entier robuste)
-while(kb.hasNextInt){
+while(!kb.hasNextInt()){
     System.out.println("Entrez un entier s'il vous plait");
     kb.next();
 }
 
 + asktIntBetween(int min, int max)
 (demande entier robuste entre min et max)
-while(kb.hasNextInt){
-    System.out.println("Entrez un entier s'il vous plait");
-    kb.next();
-int entier = kb.hasNextInt;
-    while(int < min || int > max){
-        System.out.Println("Entrez entre ")
+public static int askIntBetween(int min, int max) {
+    System.out.println("bonjour entrez un entier ");
+    while (!kb.hasNextInt()) {
+        System.out.println("Entrez un entier s'il vous plait");
         kb.next();
     }
+    int entier = kb.nextInt();
+    while (entier < min || entier > max) {
+        System.out.println("Entrez un nombre entre " + min + " et " + max);
+        while (!kb.hasNextInt()) {
+            System.out.println("Entrez un entier s'il vous plait");
+            kb.next();
+        }
+        entier = kb.nextInt();
+    }
+
+    return entier;
+}
